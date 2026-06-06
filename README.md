@@ -2,7 +2,7 @@
 
 学生发起、面向深圳理工大学准新生 + 在校生的开源在线信息手册。
 
-**在线访问**：https://suat-handbook.siat.workers.dev
+**在线访问**：https://suat-handbook.netlify.app/
 
 ## 本地开发
 
