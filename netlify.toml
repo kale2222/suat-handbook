@@ -1,0 +1,6 @@
+[build]
+command = "git config core.quotepath false && npm run build"
+publish = "build"
+
+[build.environment]
+GIT_DEPTH = "0"
