@@ -5,13 +5,13 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "SUAT 手册",
   tagline:
-    "欢迎使用SUAT手册!这是一份关于深理工校内生活，学习方面的百科全书，欢迎收藏。",
-  favicon: "img/favicon.ico",
+    "欢迎使用SUAT手册!  这是一份关于深理工校内生活，学习方面的百科全书，持续更新，欢迎收藏。",
+  favicon: "img/logo.png",
 
   clientModules: ["./src/busuanzi.ts"],
 
   future: {
-    v4: true,
+    v4: false,
   },
 
   url: "https://suat-handbook.netlify.app/",
@@ -54,7 +54,7 @@ const config: Config = {
       title: "SUAT 手册",
       logo: {
         alt: "SUAT 手册",
-        src: "img/logo.jpg",
+        src: "img/logo.png",
       },
       items: [
         {
