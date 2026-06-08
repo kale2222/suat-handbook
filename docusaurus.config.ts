@@ -27,6 +27,19 @@ const config: Config = {
     locales: ["zh-Hans"],
   },
 
+  plugins: [
+    [
+      "@docusaurus/plugin-ideal-image",
+      {
+        quality: 80,
+        max: 1200,
+        min: 600,
+        steps: 2,
+        disableInDev: false,
+      },
+    ],
+  ],
+
   presets: [
     [
       "classic",
