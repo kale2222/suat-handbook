@@ -27,6 +27,7 @@
   --ifm-toc-border-color: #e6e6e6; /* 发丝线 */
   --ifm-hr-border-color: #e6e6e6;
   --suat-hairline: #e6e6e6; /* 复用：卡片/导航/页脚的 1px 发丝线 */
+  --ifm-navbar-background-color: #ffffff; /* 导航栏纯白 */
 
   /* —— 字体与排版 —— */
   /* 系统字栈：Apple 设备 system-ui≈SF Pro（Notion 用 Inter 模仿的对象），
@@ -53,6 +54,19 @@
 .markdown h1,
 .hero__title {
   letter-spacing: -0.5px;
+}
+
+/* —— 导航栏：纯白纤细 + 底部发丝线（去阴影，纸感图底） —— */
+.navbar {
+  box-shadow: none;
+  border-bottom: 1px solid var(--suat-hairline);
+}
+
+/* —— 页脚：暖白画布延续 + 顶部发丝线，安静排布 —— */
+.footer {
+  background-color: var(--ifm-background-color);
+  border-top: 1px solid var(--suat-hairline);
+  --ifm-footer-color: var(--ifm-color-emphasis-700);
 }
 
 [data-theme='dark'] {

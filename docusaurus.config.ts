@@ -84,7 +84,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: "dark",
+      style: "light",
       links: [],
       copyright: `开源共建 · ${new Date().getFullYear()}`,
     },
