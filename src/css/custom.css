@@ -2,10 +2,14 @@
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
+ *
+ * Notion 风格皮肤：暖白纸感画布 + 深理工紫单一强调 + 发丝线卡片。
+ * 设计依据见 design/DESIGN-decision.md。
  */
 
 /* You can override the default Infima variables here. */
 :root {
+  /* —— 品牌主色：深理工紫（唯一结构强调色，保留） —— */
   --ifm-color-primary: #75207d;
   --ifm-color-primary-dark: #681d70;
   --ifm-color-primary-darker: #621b6a;
@@ -13,8 +17,41 @@
   --ifm-color-primary-light: #82238a;
   --ifm-color-primary-lighter: #882590;
   --ifm-color-primary-lightest: #9a2aa3;
+
+  /* —— Notion 皮肤：暖白画布 + 纸感图底关系 —— */
+  --ifm-background-color: #f6f5f4; /* 页面画布：暖白纸 */
+  --ifm-background-surface-color: #ffffff; /* 浮层/代码块等表面 */
+  --ifm-card-background-color: #ffffff; /* 卡片：纯白，与暖白画布形成柔和图底 */
+  --ifm-font-color-base: #1a1a1a; /* 正文：柔黑，非纯黑 */
+  --ifm-color-emphasis-700: #615d59; /* 次级文字：暖石灰 */
+  --ifm-toc-border-color: #e6e6e6; /* 发丝线 */
+  --ifm-hr-border-color: #e6e6e6;
+
+  /* —— 字体与排版 —— */
+  /* 系统字栈：Apple 设备 system-ui≈SF Pro（Notion 用 Inter 模仿的对象），
+     中文回退 PingFang/Microsoft YaHei；不加载 web 字体，保护弱网首屏。
+     详见 design/notion-restyle-log.md 决策 D1。 */
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    system-ui, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", Inter,
+    Roboto, Helvetica, Arial, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-heading-font-weight: 700; /* Notion 重标题 */
+
+  /* —— 形状：卡片 12px，按钮/输入等 8px —— */
+  --ifm-card-border-radius: 12px;
+  --ifm-global-radius: 8px;
+
+  /* —— 阴影：Notion「几乎看不见」，发丝线为主 —— */
+  --ifm-global-shadow-lw: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* h1 轻微负字距，营造 Notion「沉稳」标题；幅度收敛以免汉字显挤 */
+.markdown h1,
+.hero__title {
+  letter-spacing: -0.5px;
 }
 
 [data-theme='dark'] {
