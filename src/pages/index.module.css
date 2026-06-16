@@ -21,3 +21,54 @@
   align-items: center;
   justify-content: center;
 }
+
+/* —— 分类卡：Notion feature-card（白底 + 发丝线 + 分类贴纸色） —— */
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem 1.25rem 1.4rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--suat-hairline);
+  border-radius: var(--ifm-card-border-radius);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.categoryCard:hover {
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+/* 顶部贴纸色条：分类识别（纯装饰） */
+.cardAccent {
+  width: 30px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--cat-color);
+  margin-bottom: 0.85rem;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.cardDesc {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* "查看 →" 用品牌紫——唯一的"可点击"信号 */
+.cardCta {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}

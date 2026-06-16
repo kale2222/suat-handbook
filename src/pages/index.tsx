@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode, CSSProperties } from "react";
 import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
@@ -7,26 +7,32 @@ import Heading from "@theme/Heading";
 
 import styles from "./index.module.css";
 
+// 分类贴纸色：仅作分类识别（装饰），不承担"可点击"信号（那是品牌紫）。
+// 映射依据见 design/DESIGN-decision.md「分类 → 贴纸色映射」。
 const categories = [
   {
     title: "🏃 办事指南",
     description: "校园卡、电费、快递、打印……在校常用办事一览",
     to: "/docs/办事指南",
+    color: "#dd5b00",
   },
   {
     title: "🍜 校园生活",
     description: "食堂、快递、社团、心理资源、校医院，真实的校园日常",
     to: "/docs/校园生活",
+    color: "#1aae39",
   },
   {
     title: "📚 学业指南",
     description: "专业分流、科研轮转、联合培养，学业路上少走弯路",
     to: "/docs/学业指南",
+    color: "#2a9d99",
   },
   {
     title: "🎓 新生指南",
     description: "报到流程、宿舍、第一周清单……暑假前必读",
     to: "/docs/新生指南",
+    color: "#62aef0",
   },
 ];
 
@@ -60,18 +66,20 @@ export default function Home(): ReactNode {
       <main>
         <section className="container" style={{ padding: "3rem 0" }}>
           <div className="row">
-            {categories.map(({ title, description, to }) => (
+            {categories.map(({ title, description, to, color }) => (
               <div key={title} className="col col--3">
-                <div
-                  className="card"
-                  style={{ height: "100%", padding: "1.5rem" }}
+                <Link
+                  to={to}
+                  className={styles.categoryCard}
+                  style={{ "--cat-color": color } as CSSProperties}
                 >
-                  <Heading as="h3">{title}</Heading>
-                  <p style={{ color: "var(--ifm-color-emphasis-700)" }}>
-                    {description}
-                  </p>
-                  <Link to={to}>查看 →</Link>
-                </div>
+                  <span className={styles.cardAccent} />
+                  <Heading as="h3" className={styles.cardTitle}>
+                    {title}
+                  </Heading>
+                  <p className={styles.cardDesc}>{description}</p>
+                  <span className={styles.cardCta}>查看 →</span>
+                </Link>
               </div>
             ))}
           </div>

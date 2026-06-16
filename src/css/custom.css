@@ -26,6 +26,7 @@
   --ifm-color-emphasis-700: #615d59; /* 次级文字：暖石灰 */
   --ifm-toc-border-color: #e6e6e6; /* 发丝线 */
   --ifm-hr-border-color: #e6e6e6;
+  --suat-hairline: #e6e6e6; /* 复用：卡片/导航/页脚的 1px 发丝线 */
 
   /* —— 字体与排版 —— */
   /* 系统字栈：Apple 设备 system-ui≈SF Pro（Notion 用 Inter 模仿的对象），
