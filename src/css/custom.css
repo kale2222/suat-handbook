@@ -69,7 +69,16 @@
   --ifm-footer-color: var(--ifm-color-emphasis-700);
 }
 
-[data-theme='dark'] {
+/* 暗色下 hero 用深紫（而非 Infima 翻转出的亮品红），避免刺眼；见踩坑 P4 */
+html[data-theme='dark'] .hero--primary {
+  background-color: #45184b;
+  color: #f5f2ee;
+}
+
+/* 用 html[data-theme='dark']（特异性 0,1,1）压过 Infima 同名定义；
+   见 design/notion-restyle-log.md 踩坑 P3 */
+html[data-theme='dark'] {
+  /* 品牌紫亮色变体：暗背景下保证对比度 */
   --ifm-color-primary: #c46fcc;
   --ifm-color-primary-dark: #bc5dc5;
   --ifm-color-primary-darker: #b854c1;
@@ -77,5 +86,17 @@
   --ifm-color-primary-light: #cc81d3;
   --ifm-color-primary-lighter: #d08ad7;
   --ifm-color-primary-lightest: #daa3e1;
+
+  /* —— 暖色暗背景：延续纸感，非纯黑 —— */
+  --ifm-background-color: #1f1d1b; /* 暖炭画布 */
+  --ifm-background-surface-color: #262320;
+  --ifm-card-background-color: #262320; /* 卡片比画布略亮，形成图底 */
+  --ifm-font-color-base: #ece9e4; /* 暖白正文，非纯白 */
+  --ifm-color-emphasis-700: #b3ada4; /* 次级文字：暖灰 */
+  --ifm-toc-border-color: #38332e;
+  --ifm-hr-border-color: #38332e;
+  --suat-hairline: #38332e; /* 暗色发丝线 */
+  --ifm-navbar-background-color: #1f1d1b; /* 导航栏随暖炭画布 */
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }

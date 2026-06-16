@@ -20,13 +20,15 @@
 ## 阶段进度
 
 - [x] 阶段 0：建分支 + 基线截图
-- [ ] 阶段 1：全局令牌
-- [ ] 阶段 2：首页
-- [ ] 阶段 3：导航与页脚
-- [ ] 阶段 4：暗色模式
+- [x] 阶段 1：全局令牌
+- [x] 阶段 2：首页
+- [x] 阶段 3：导航与页脚
+- [x] 阶段 4：暗色模式
 - [ ] 阶段 5：收尾回归
 
 ## 踩坑记录
 
 - **P1（预览环境默认暗色）**：preview 浏览器 `prefers-color-scheme` 默认 dark，Docusaurus 跟随后整页走暗色，`--ifm-background-color` 解析为 Infima 暗色 `#1b1b1d`，一度误以为暖白没生效。强制 `data-theme=light` 后确认 `#f6f5f4` 正确。→ 验证浅色须显式切 light；暗色留到阶段 4。
 - **P2（h1 负字距选择器没命中）**：文档页 h1 的直接父元素 class 为空，`.markdown > h1:first-child` 不匹配。改用 `.markdown h1` 后生效。
+- **P3（暗色画布令牌被特异性压过）**：在 `[data-theme='dark']`（特异性 0,1,0）里覆盖 `--ifm-background-color` 无效，但同块内自定义 `--suat-hairline` 生效——因 Infima 用更高特异性 `html[data-theme='dark']`（0,1,1）定义了前者。修法：dark 块选择器提升为 `html[data-theme='dark']`。浅色无此问题（双方均在 `:root`，后加载者胜）。
+- **P4（暗色 hero 刺眼）**：`hero--primary` 背景取 `--ifm-color-primary`，暗色下翻成亮紫 `#c46fcc`，在暖炭页面上非常刺眼。修法：`html[data-theme='dark'] .hero--primary` 覆盖为深紫 `#45184b` + 暖白字 `#f5f2ee`，对比度充足。
