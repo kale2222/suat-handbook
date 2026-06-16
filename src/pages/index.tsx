@@ -21,12 +21,12 @@ const categories = [
   {
     title: "学习",
     description: "选课、绩点、考试、保研，学业经验分享",
-    to: "/docs/学习",
+    to: "/docs/学业指南",
   },
   {
     title: "服务工具",
     description: "校内系统、常用网站、办事流程一览",
-    to: "/docs/服务工具",
+    to: "/docs/办事指南",
   },
 ];
 
