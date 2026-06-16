@@ -9,24 +9,24 @@ import styles from "./index.module.css";
 
 const categories = [
   {
-    title: "新生指南",
-    description: "入学前必读，报到流程、准备清单、常见问题",
-    to: "/docs/新生指南",
+    title: "🏃 办事指南",
+    description: "校园卡、电费、快递、打印……在校常用办事一览",
+    to: "/docs/办事指南",
   },
   {
-    title: "校园生活",
-    description: "食堂、宿舍、交通、周边，真实的校园日常",
+    title: "🍜 校园生活",
+    description: "食堂、快递、社团、心理资源、校医院，真实的校园日常",
     to: "/docs/校园生活",
   },
   {
-    title: "学习",
-    description: "选课、绩点、考试、保研，学业经验分享",
+    title: "📚 学业指南",
+    description: "专业分流、科研轮转、联合培养，学业路上少走弯路",
     to: "/docs/学业指南",
   },
   {
-    title: "服务工具",
-    description: "校内系统、常用网站、办事流程一览",
-    to: "/docs/办事指南",
+    title: "🎓 新生专区",
+    description: "报到流程、宿舍、第一周清单……暑假前必读",
+    to: "/docs/新生指南",
   },
 ];
 
