@@ -24,7 +24,7 @@ const categories = [
     to: "/docs/学业指南",
   },
   {
-    title: "🎓 新生专区",
+    title: "🎓 新生指南",
     description: "报到流程、宿舍、第一周清单……暑假前必读",
     to: "/docs/新生指南",
   },
