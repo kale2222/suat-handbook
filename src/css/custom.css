@@ -39,6 +39,13 @@
   --ifm-font-size-base: 16px;
   --ifm-heading-font-weight: 700; /* Notion 重标题 */
 
+  /* 第二轮 Step1：放大标题阶梯 + 段距，Notion 式舒展节奏 */
+  --ifm-h1-font-size: 2.3rem;
+  --ifm-h2-font-size: 1.65rem;
+  --ifm-h3-font-size: 1.3rem;
+  --ifm-heading-margin-bottom: 0.8rem;
+  --ifm-paragraph-margin-bottom: 1.2rem;
+
   /* —— 形状：卡片 12px，按钮/输入等 8px —— */
   --ifm-card-border-radius: 12px;
   --ifm-global-radius: 8px;
@@ -50,10 +57,36 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* h1 轻微负字距，营造 Notion「沉稳」标题；幅度收敛以免汉字显挤 */
+/* h1/h2 轻微负字距，营造 Notion「沉稳」标题；幅度收敛以免汉字显挤 */
 .markdown h1,
+.markdown h2,
 .hero__title {
   letter-spacing: -0.5px;
+}
+
+/* —— 第二轮 Step1：正文「白纸」浮在暖白画布上（Notion 书桌纸感） —— */
+.theme-doc-markdown {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--suat-hairline);
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  padding: 2.5rem 2.75rem;
+  line-height: 1.75; /* 中文正文更舒展；标题各自有 heading-line-height 不受影响 */
+}
+
+@media (max-width: 996px) {
+  .theme-doc-markdown {
+    padding: 1.5rem 1.25rem; /* 移动端收紧内边距 */
+    border-radius: 10px;
+  }
+}
+
+/* 子标题上方留白：章节呼吸感（Notion 平静的关键）；标题 h1 不加，由白纸顶部 padding 控制 */
+.markdown h2 {
+  margin-top: 2.4rem;
+}
+.markdown h3 {
+  margin-top: 1.8rem;
 }
 
 /* —— 导航栏：纯白纤细 + 底部发丝线（去阴影，纸感图底） —— */
