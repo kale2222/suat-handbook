@@ -28,6 +28,10 @@
   --ifm-hr-border-color: #e6e6e6;
   --suat-hairline: #e6e6e6; /* 复用：卡片/导航/页脚的 1px 发丝线 */
   --ifm-navbar-background-color: #ffffff; /* 导航栏纯白 */
+  --suat-callout-bg: #f3f1ee; /* 引用/提示卡底色（白纸上的暖灰块） */
+  --suat-active-bg: rgba(117, 32, 125, 0.1); /* 侧栏激活药丸：淡紫填充 */
+  /* 改写 Infima 自身变量，避免被其 .menu__link--active:not(...) 高特异性压过（同 P3 教训） */
+  --ifm-menu-color-background-active: var(--suat-active-bg);
 
   /* —— 字体与排版 —— */
   /* 系统字栈：Apple 设备 system-ui≈SF Pro（Notion 用 Inter 模仿的对象），
@@ -39,10 +43,8 @@
   --ifm-font-size-base: 16px;
   --ifm-heading-font-weight: 700; /* Notion 重标题 */
 
-  /* 第二轮 Step1：放大标题阶梯 + 段距，Notion 式舒展节奏 */
-  --ifm-h1-font-size: 2.3rem;
-  --ifm-h2-font-size: 1.65rem;
-  --ifm-h3-font-size: 1.3rem;
+  /* 第二轮 Step1：加大段距/标题间距，Notion 式舒展节奏
+     （markdown 标题字号由 Docusaurus 文档样式控制、默认已偏大，覆盖 --ifm-h*-font-size 无效，故不设） */
   --ifm-heading-margin-bottom: 0.8rem;
   --ifm-paragraph-margin-bottom: 1.2rem;
 
@@ -102,6 +104,73 @@
   --ifm-footer-color: var(--ifm-color-emphasis-700);
 }
 
+/* ===== 第二轮 Step2：内容块 + 侧栏 + TOC（皆用令牌，暗色自动适配） ===== */
+
+/* 代码块：圆角 + 发丝线 + 去阴影（Notion 平铺灰块） */
+.theme-code-block {
+  border: 1px solid var(--suat-hairline);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+/* 引用 → Notion 灰色提示卡：柔和填充 + 圆角，不用斜体；中性左条（紫色留给“可点击”） */
+.markdown blockquote {
+  background: var(--suat-callout-bg);
+  border-left: 3px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.9rem 1.15rem;
+  margin: 1.25rem 0;
+  color: var(--ifm-color-emphasis-800);
+}
+.markdown blockquote > :first-child {
+  margin-top: 0;
+}
+.markdown blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* 表格：发丝线行分隔 + 表头粗底线，去网格边框与斑马纹（Notion 清爽表） */
+.markdown table {
+  border-collapse: collapse;
+}
+.markdown table th,
+.markdown table td {
+  border: none;
+  border-bottom: 1px solid var(--suat-hairline);
+  padding: 0.6rem 0.85rem;
+}
+.markdown table thead th {
+  background: transparent;
+  border-bottom: 2px solid var(--suat-hairline);
+  font-weight: 700;
+}
+.markdown table tr:nth-child(2n) {
+  background: transparent;
+}
+
+/* 图片：圆角 + 发丝线（小程序截图/地图圆角化很 Notion） */
+.markdown img {
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--suat-hairline);
+}
+
+/* 侧栏激活态 → 圆角药丸（填充色经 --ifm-menu-color-background-active 注入） */
+.menu__link--active {
+  border-radius: var(--ifm-global-radius);
+  font-weight: 600;
+}
+
+/* 右侧 TOC：激活紫色 + 轻过渡 */
+.table-of-contents__link {
+  transition: color 0.15s ease;
+}
+.table-of-contents__link--active,
+.table-of-contents__link--active code {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
 /* 暗色下 hero 用深紫（而非 Infima 翻转出的亮品红），避免刺眼；见踩坑 P4 */
 html[data-theme='dark'] .hero--primary {
   background-color: #45184b;
@@ -130,6 +199,8 @@ html[data-theme='dark'] {
   --ifm-hr-border-color: #38332e;
   --suat-hairline: #38332e; /* 暗色发丝线 */
   --ifm-navbar-background-color: #1f1d1b; /* 导航栏随暖炭画布 */
+  --suat-callout-bg: #2c2824; /* 暗色提示卡：比白纸略亮，浮出 */
+  --suat-active-bg: rgba(196, 111, 204, 0.16); /* 暗色侧栏激活药丸 */
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }

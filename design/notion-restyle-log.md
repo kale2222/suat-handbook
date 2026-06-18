@@ -35,9 +35,18 @@
 - 「改造前后截图对比沉淀到 PRD」：PRD.md 为本地草稿（已 gitignore），属手动步骤。
 - **合并分支 + `release.sh` 发版**：发版为对外动作，未自动执行，留待用户审阅本分支后决定。
 
+## 第二轮：阅读体验大改（用户反馈"变化不大"后）
+
+第一轮为令牌级换肤、效果温和。第二轮聚焦**文档页阅读体验**（用户 80% 时间所在），采用"先做最大杠杆 → 给看 live → 再往下"的增量节奏（见 [[feedback-visual-calibrate-early]]）。纯 `custom.css`，不 swizzle。
+
+- **Step 1（已 commit 76c73c3）**：正文 `.theme-doc-markdown` 做成"浮在暖白画布上的白纸"（白底 + 发丝线 + 12px 圆角 + 极淡阴影 + 2.5rem 内边距 + 1.75 行高），子标题加大上方留白。这是最高杠杆，用户看 live 后认可方向。
+- **Step 2（本次）**：内容块美化——引用→Notion 灰色提示卡（`--suat-callout-bg`，非斜体）、代码块圆角发丝线、表格行分隔去网格、图片圆角、侧栏激活药丸（`--ifm-menu-color-background-active` 淡紫）、TOC 激活紫色。皆用令牌，暗色自动适配。浅/暗 × 桌面/移动 全验证，`npm run build` 通过、无报错。
+- **未做（择期）**：首页 hero 仍是亮紫块（"极简浅色 hero"另议）；面包屑/页脚与白纸的成组微调。
+
 ## 踩坑记录
 
 - **P1（预览环境默认暗色）**：preview 浏览器 `prefers-color-scheme` 默认 dark，Docusaurus 跟随后整页走暗色，`--ifm-background-color` 解析为 Infima 暗色 `#1b1b1d`，一度误以为暖白没生效。强制 `data-theme=light` 后确认 `#f6f5f4` 正确。→ 验证浅色须显式切 light；暗色留到阶段 4。
 - **P2（h1 负字距选择器没命中）**：文档页 h1 的直接父元素 class 为空，`.markdown > h1:first-child` 不匹配。改用 `.markdown h1` 后生效。
 - **P3（暗色画布令牌被特异性压过）**：在 `[data-theme='dark']`（特异性 0,1,0）里覆盖 `--ifm-background-color` 无效，但同块内自定义 `--suat-hairline` 生效——因 Infima 用更高特异性 `html[data-theme='dark']`（0,1,1）定义了前者。修法：dark 块选择器提升为 `html[data-theme='dark']`。浅色无此问题（双方均在 `:root`，后加载者胜）。
 - **P4（暗色 hero 刺眼）**：`hero--primary` 背景取 `--ifm-color-primary`，暗色下翻成亮紫 `#c46fcc`，在暖炭页面上非常刺眼。修法：`html[data-theme='dark'] .hero--primary` 覆盖为深紫 `#45184b` + 暖白字 `#f5f2ee`，对比度充足。
+- **P5（第二轮·侧栏药丸被特异性压过 + 字号变量死代码）**：① `.menu__link--active{background}`（0,1,0）被 Infima 的 `.menu__link--active:not(.menu__link--sublist)`（0,2,0）压过——同 P3 教训。修法：改写 Infima 自身变量 `--ifm-menu-color-background-active`，不直接覆盖 `background`。② 覆盖 `--ifm-h1/h2/h3-font-size` 对 markdown 标题无效（Docusaurus 文档标题有自己更高优先级的字号，h1=48px/h2=32px 已偏大），属死代码，已删除；默认大字号本就符合 Notion 大标题，不强改。
