@@ -66,6 +66,14 @@
   letter-spacing: -0.5px;
 }
 
+/* 文字选区高亮：品牌紫淡色，替代浏览器默认蓝（演示/截图更协调） */
+::selection {
+  background-color: rgba(117, 32, 125, 0.18);
+}
+html[data-theme='dark'] ::selection {
+  background-color: rgba(196, 111, 204, 0.3);
+}
+
 /* —— 第二轮 Step1：正文「白纸」浮在暖白画布上（Notion 书桌纸感） —— */
 .theme-doc-markdown {
   background: var(--ifm-background-surface-color);
