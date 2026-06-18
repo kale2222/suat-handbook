@@ -3,7 +3,7 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  *
- * Notion 风格皮肤：暖白纸感画布 + 深理工紫单一强调 + 发丝线卡片。
+ * 皮肤：GitHub 风纯白配色 + 发丝线内容框 + 深理工紫单一强调。
  * 设计依据见 design/DESIGN-decision.md。
  */
 
@@ -18,32 +18,31 @@
   --ifm-color-primary-lighter: #882590;
   --ifm-color-primary-lightest: #9a2aa3;
 
-  /* —— Notion 皮肤：暖白画布 + 纸感图底关系 —— */
-  --ifm-background-color: #faf9f6; /* 页面画布：干净的暖白（清爽，不发灰；白纸靠边框+阴影浮起） */
+  /* —— 纯白配色（GitHub 风）：白底 + 发丝线边框区分内容框，不发暖不发灰 —— */
+  --ifm-background-color: #ffffff; /* 页面画布：纯白 */
   --ifm-background-surface-color: #ffffff; /* 浮层/代码块等表面 */
-  --ifm-card-background-color: #ffffff; /* 卡片：纯白，与暖白画布形成柔和图底 */
+  --ifm-card-background-color: #ffffff; /* 卡片/内容框：纯白，靠边框区分 */
   --ifm-font-color-base: #1a1a1a; /* 正文：柔黑，非纯黑 */
-  --ifm-color-emphasis-700: #615d59; /* 次级文字：暖石灰 */
-  --ifm-toc-border-color: #e6e6e6; /* 发丝线 */
-  --ifm-hr-border-color: #e6e6e6;
-  --suat-hairline: #e6e6e6; /* 复用：卡片/导航/页脚的 1px 发丝线 */
+  --ifm-color-emphasis-700: #656d76; /* 次级文字：中性灰 */
+  --ifm-toc-border-color: #d8dee4; /* 发丝线（GitHub border-muted） */
+  --ifm-hr-border-color: #d8dee4;
+  --suat-hairline: #d8dee4; /* 复用：卡片/导航/页脚的 1px 发丝线 */
   --ifm-navbar-background-color: #ffffff; /* 导航栏纯白 */
-  --suat-callout-bg: #f3f1ee; /* 引用/提示卡底色（白纸上的暖灰块） */
+  --suat-callout-bg: #f6f8fa; /* 引用/提示卡底色（白纸上的中性灰块） */
   --suat-active-bg: rgba(117, 32, 125, 0.1); /* 侧栏激活药丸：淡紫填充 */
   /* 改写 Infima 自身变量，避免被其 .menu__link--active:not(...) 高特异性压过（同 P3 教训） */
   --ifm-menu-color-background-active: var(--suat-active-bg);
 
   /* —— 字体与排版 —— */
-  /* 系统字栈：Apple 设备 system-ui≈SF Pro（Notion 用 Inter 模仿的对象），
-     中文回退 PingFang/Microsoft YaHei；不加载 web 字体，保护弱网首屏。
-     详见 design/notion-restyle-log.md 决策 D1。 */
+  /* 系统字栈：Apple 设备 system-ui≈SF Pro；中文回退 PingFang/Microsoft YaHei；
+     不加载 web 字体，保护弱网首屏。详见 design/notion-restyle-log.md 决策 D1。 */
   --ifm-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI",
     system-ui, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", Inter,
     Roboto, Helvetica, Arial, sans-serif;
   --ifm-font-size-base: 16px;
-  --ifm-heading-font-weight: 700; /* Notion 重标题 */
+  --ifm-heading-font-weight: 700; /* 重标题 */
 
-  /* 第二轮 Step1：加大段距/标题间距，Notion 式舒展节奏
+  /* 第二轮 Step1：加大段距/标题间距，舒展阅读节奏
      （markdown 标题字号由 Docusaurus 文档样式控制、默认已偏大，覆盖 --ifm-h*-font-size 无效，故不设） */
   --ifm-heading-margin-bottom: 0.8rem;
   --ifm-paragraph-margin-bottom: 1.2rem;
@@ -52,14 +51,14 @@
   --ifm-card-border-radius: 12px;
   --ifm-global-radius: 8px;
 
-  /* —— 阴影：Notion「几乎看不见」，发丝线为主 —— */
+  /* —— 阴影：几乎看不见，发丝线为主 —— */
   --ifm-global-shadow-lw: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
 
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* h1/h2 轻微负字距，营造 Notion「沉稳」标题；幅度收敛以免汉字显挤 */
+/* h1/h2 轻微负字距，营造沉稳标题；幅度收敛以免汉字显挤 */
 .markdown h1,
 .markdown h2,
 .hero__title {
@@ -74,12 +73,11 @@ html[data-theme='dark'] ::selection {
   background-color: rgba(196, 111, 204, 0.3);
 }
 
-/* —— 第二轮 Step1：正文「白纸」浮在暖白画布上（Notion 书桌纸感） —— */
+/* —— 正文内容框：纯白 + 发丝线边框（GitHub 风，不靠阴影/灰底） —— */
 .theme-doc-markdown {
   background: var(--ifm-background-surface-color);
   border: 1px solid var(--suat-hairline);
   border-radius: var(--ifm-card-border-radius);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   padding: 2.5rem 2.75rem;
   line-height: 1.75; /* 中文正文更舒展；标题各自有 heading-line-height 不受影响 */
 }
@@ -91,7 +89,7 @@ html[data-theme='dark'] ::selection {
   }
 }
 
-/* 子标题上方留白：章节呼吸感（Notion 平静的关键）；标题 h1 不加，由白纸顶部 padding 控制 */
+/* 子标题上方留白：章节呼吸感；标题 h1 不加，由白纸顶部 padding 控制 */
 .markdown h2 {
   margin-top: 2.4rem;
 }
@@ -105,7 +103,7 @@ html[data-theme='dark'] ::selection {
   border-bottom: 1px solid var(--suat-hairline);
 }
 
-/* —— 页脚：暖白画布延续 + 顶部发丝线，安静排布 —— */
+/* —— 页脚：画布延续 + 顶部发丝线，安静排布 —— */
 .footer {
   background-color: var(--ifm-background-color);
   border-top: 1px solid var(--suat-hairline);
@@ -114,7 +112,7 @@ html[data-theme='dark'] ::selection {
 
 /* ===== 第二轮 Step2：内容块 + 侧栏 + TOC（皆用令牌，暗色自动适配） ===== */
 
-/* 代码块：圆角 + 发丝线 + 去阴影（Notion 平铺灰块） */
+/* 代码块：圆角 + 发丝线 + 去阴影 */
 .theme-code-block {
   border: 1px solid var(--suat-hairline);
   border-radius: var(--ifm-global-radius);
@@ -122,7 +120,7 @@ html[data-theme='dark'] ::selection {
   overflow: hidden;
 }
 
-/* 引用 → Notion 灰色提示卡：柔和填充 + 圆角，不用斜体；中性左条（紫色留给“可点击”） */
+/* 引用 → 灰色提示卡：柔和填充 + 圆角，不用斜体；中性左条（紫色留给“可点击”） */
 .markdown blockquote {
   background: var(--suat-callout-bg);
   border-left: 3px solid var(--ifm-color-emphasis-300);
@@ -138,7 +136,7 @@ html[data-theme='dark'] ::selection {
   margin-bottom: 0;
 }
 
-/* 表格：发丝线行分隔 + 表头粗底线，去网格边框与斑马纹（Notion 清爽表） */
+/* 表格：发丝线行分隔 + 表头粗底线，去网格边框与斑马纹 */
 .markdown table {
   border-collapse: collapse;
 }
@@ -157,10 +155,23 @@ html[data-theme='dark'] ::selection {
   background: transparent;
 }
 
-/* 图片：圆角 + 发丝线（小程序截图/地图圆角化很 Notion） */
+/* 图片：圆角 + 发丝线（截图/地图圆角化） */
 .markdown img {
   border-radius: var(--ifm-global-radius);
   border: 1px solid var(--suat-hairline);
+}
+
+/* admonition 提示框：:::info 由默认蓝改为品牌紫（与主题统一）。
+   warning/danger 保留语义橙红——警示信号不应变紫。 */
+.theme-admonition-info {
+  --ifm-alert-background-color: #f6edf8;
+  --ifm-alert-border-color: var(--ifm-color-primary);
+  --ifm-alert-foreground-color: #4a1650;
+}
+html[data-theme='dark'] .theme-admonition-info {
+  --ifm-alert-background-color: rgba(196, 111, 204, 0.1);
+  --ifm-alert-border-color: var(--ifm-color-primary);
+  --ifm-alert-foreground-color: #e6edf3;
 }
 
 /* 侧栏激活态 → 圆角药丸（填充色经 --ifm-menu-color-background-active 注入） */
@@ -197,17 +208,17 @@ html[data-theme='dark'] {
   --ifm-color-primary-lighter: #d08ad7;
   --ifm-color-primary-lightest: #daa3e1;
 
-  /* —— 暖色暗背景：延续纸感，非纯黑 —— */
-  --ifm-background-color: #1f1d1b; /* 暖炭画布 */
-  --ifm-background-surface-color: #262320;
-  --ifm-card-background-color: #262320; /* 卡片比画布略亮，形成图底 */
-  --ifm-font-color-base: #ece9e4; /* 暖白正文，非纯白 */
-  --ifm-color-emphasis-700: #b3ada4; /* 次级文字：暖灰 */
-  --ifm-toc-border-color: #38332e;
-  --ifm-hr-border-color: #38332e;
-  --suat-hairline: #38332e; /* 暗色发丝线 */
-  --ifm-navbar-background-color: #1f1d1b; /* 导航栏随暖炭画布 */
-  --suat-callout-bg: #2c2824; /* 暗色提示卡：比白纸略亮，浮出 */
+  /* —— 中性深色（GitHub dark 基准）：非纯黑，冷调 —— */
+  --ifm-background-color: #0d1117; /* 画布 */
+  --ifm-background-surface-color: #161b22;
+  --ifm-card-background-color: #161b22; /* 白纸比画布略亮，形成图底 */
+  --ifm-font-color-base: #e6edf3; /* 中性亮灰正文 */
+  --ifm-color-emphasis-700: #8b949e; /* 次级文字 */
+  --ifm-toc-border-color: #30363d;
+  --ifm-hr-border-color: #30363d;
+  --suat-hairline: #30363d; /* 暗色发丝线 */
+  --ifm-navbar-background-color: #0d1117; /* 导航栏随画布 */
+  --suat-callout-bg: #21262d; /* 暗色提示卡：比白纸略亮，浮出 */
   --suat-active-bg: rgba(196, 111, 204, 0.16); /* 暗色侧栏激活药丸 */
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
