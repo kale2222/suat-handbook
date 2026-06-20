@@ -2,12 +2,18 @@
 contributors: [尹家欢]
 ---
 
-# 深理工手册（欢迎提建议或者投稿～）
+# 深理工手册
 
-为深理工同学提供快捷信息查询服务。
-大家有任何建议可以在 github 中提 issues ～，内容贡献者会在文章右下角署名。
+为深理工同学提供快捷信息查询服务，欢迎大家提建议或投稿～
 
 <span style={{color: '#75207d'}}>**手机端点击左上角查看菜单栏**</span>
+
+## 参与共建
+
+- 📝 欢迎大家**提建议**：[建议收集表](https://docs.qq.com/form/page/DR1hjV1BqeVJ2TWZq) 或 [GitHub Issues](https://github.com/kale2222/suat-handbook/issues)
+- ✉️ **加入运营 / 内容共创**请联系：1426159886@qq.com
+
+> 内容贡献者会在文章右下角署名 🙌
 
 ## 🔥 常用功能
 
