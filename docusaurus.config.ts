@@ -40,6 +40,20 @@ const config: Config = {
     ],
   ],
 
+  themes: [
+    [
+      "@easyops-cn/docusaurus-search-local",
+      {
+        hashed: true,
+        language: ["en", "zh"],
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: false,
+        searchResultLimits: 8,
+      },
+    ],
+  ],
+
   presets: [
     [
       "classic",
