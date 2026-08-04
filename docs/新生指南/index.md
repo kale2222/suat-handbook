@@ -9,6 +9,18 @@ contributors: [尹家欢]
 ## 了解深理工
 
 <div className="row">
+  <div className="col col--12" style={{marginBottom: '1rem'}}>
+    <div className="card" style={{height: '100%'}}>
+      <div className="card__body">
+        <h3>📖 2026 新生指南（官方版）</h3>
+        <p>学校提供的 2026 年最新版新生指南</p>
+        <a href="https://www.kdocs.cn/l/cvHJokOHur7C" target="_blank" rel="noopener">前往查看 ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="row">
   <div className="col col--6" style={{marginBottom: '1rem'}}>
     <div className="card" style={{height: '100%'}}>
       <div className="card__body">
