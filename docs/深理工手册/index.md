@@ -17,7 +17,7 @@ contributors: [尹家欢]
 
 ## 🔥 常用功能
 
-- [最新 GK23 时间表](../办事指南/GK23时间表.md)
+- [先进院接驳车时间表](../办事指南/先进院接驳车时间表.md)
 - [校园卡补办](../办事指南/校园卡补办.md)
 - [电费缴纳](../办事指南/电费缴纳.md)
 - [校园快递指南](../办事指南/校园快递指南.md)
@@ -33,4 +33,4 @@ contributors: [尹家欢]
 | ------------------------------------------------------- | -------------- |
 | [深圳理工大学官网](https://www.suat-sz.edu.cn/)         | 官方网站       |
 | [中科院深圳先进技术研究院官网](https://www.siat.ac.cn/) | 官方网站       |
-| [SUAT 统一身份认证平台](https://jw.suat-sz.edu.cn/)     | 内含教务系统等 |
+| [SUAT 统一身份认证平台](https://sso.suat-sz.edu.cn/gravity-login/#/?state=null&redirect_url=https%3A%2F%2Fvpn.suat-sz.edu.cn%2Fpassport%2Fv1%2Fauth%2FhttpsOauth2&app_id=1818899373181841409&use_new_code_name=false) | 内含教务系统等 |

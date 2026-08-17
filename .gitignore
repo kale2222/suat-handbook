@@ -12,6 +12,7 @@
 # Misc
 .DS_Store
 .claude/
+AGENTS.md
 PRD.md
 .env.local
 .env.development.local
