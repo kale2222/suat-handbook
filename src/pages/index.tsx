@@ -12,25 +12,25 @@ import styles from "./index.module.css";
 const categories = [
   {
     title: "🏃 办事指南",
-    description: "校园卡、电费、快递、打印……在校常用办事一览",
+    description: "校园卡、电费、校园网、快递、打印与交通等实用指引",
     to: "/docs/办事指南",
     color: "#dd5b00",
   },
   {
     title: "🍜 校园生活",
-    description: "食堂、快递、社团、心理资源、校医院，真实的校园日常",
+    description: "食堂、宿舍、社团、医疗与心理资源，了解真实校园生活",
     to: "/docs/校园生活",
     color: "#1aae39",
   },
   {
     title: "📚 学业指南",
-    description: "专业分流、科研轮转、联合培养，学业路上少走弯路",
+    description: "专业分流、科研轮转、绩点换算与联合培养经验",
     to: "/docs/学业指南",
     color: "#2a9d99",
   },
   {
     title: "🎓 新生指南",
-    description: "报到流程、宿舍、第一周清单……暑假前必读",
+    description: "基础课程、学习资源、军训与新生自我介绍指南",
     to: "/docs/新生指南",
     color: "#62aef0",
   },
