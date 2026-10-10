@@ -4,6 +4,7 @@ import { ThemeClassNames } from "@docusaurus/theme-common";
 import { useDoc } from "@docusaurus/plugin-content-docs/client";
 import TagsListInline from "@theme/TagsListInline";
 import EditMetaRow from "@theme/EditMetaRow";
+import ArticleFeedback from "../../../components/ArticleFeedback";
 
 export default function DocItemFooter(): ReactNode {
   const { metadata } = useDoc();
@@ -21,17 +22,11 @@ export default function DocItemFooter(): ReactNode {
   const canDisplayEditMetaRow = !!(editUrl || lastUpdatedAt || lastUpdatedBy);
   const canDisplayContributors = contributors.length > 0;
 
-  const canDisplayFooter =
-    canDisplayTagsRow || canDisplayEditMetaRow || canDisplayContributors;
-
-  if (!canDisplayFooter) {
-    return null;
-  }
-
   return (
     <footer
       className={clsx(ThemeClassNames.docs.docFooter, "docusaurus-mt-lg")}
     >
+      <ArticleFeedback key={metadata.permalink} path={metadata.permalink} title={metadata.title} />
       {canDisplayTagsRow && (
         <div
           className={clsx(

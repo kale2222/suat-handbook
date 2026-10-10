@@ -8,7 +8,16 @@ const config: Config = {
     "欢迎使用SUAT手册!  这是一份关于深理工校内生活，学习方面的百科全书，持续更新，欢迎收藏。",
   favicon: "img/logo.png",
 
-  clientModules: ["./src/busuanzi.ts"],
+  clientModules: ["./src/analytics/client.ts"],
+
+  customFields: {
+    analytics: {
+      production: process.env.CONTEXT === "production",
+      origin: "https://suat-handbook.netlify.app",
+      posthogKey: process.env.POSTHOG_PROJECT_KEY || "",
+      posthogHost: process.env.POSTHOG_API_HOST || "https://us.i.posthog.com",
+    },
+  },
 
   future: {
     v4: false,
@@ -99,7 +108,12 @@ const config: Config = {
     },
     footer: {
       style: "light",
-      links: [],
+      links: [
+        {
+          title: "关于本站",
+          items: [{ label: "统计说明与设置", to: "/privacy" }],
+        },
+      ],
       copyright: `开源共建 · ${new Date().getFullYear()}`,
     },
     prism: {

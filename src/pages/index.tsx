@@ -4,6 +4,7 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
+import VisitorCounters from "../components/VisitorCounters";
 
 import styles from "./index.module.css";
 
@@ -84,18 +85,7 @@ export default function Home(): ReactNode {
             ))}
           </div>
         </section>
-        <div
-          id="site-stats"
-          style={{
-            textAlign: "center",
-            padding: "1rem 0 2rem",
-            color: "var(--ifm-color-emphasis-500)",
-            fontSize: "0.85rem",
-          }}
-        >
-          累计访客 <span id="busuanzi_value_site_uv">...</span> 人 &nbsp;·&nbsp;
-          累计浏览 <span id="busuanzi_value_site_pv">...</span> 次
-        </div>
+        <VisitorCounters />
       </main>
     </Layout>
   );
